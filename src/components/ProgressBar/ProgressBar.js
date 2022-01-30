@@ -20,7 +20,7 @@ const LoadedContainer = styled.div`
   width: 100%;
   height: 100%;
   border-radius: var(--inner-radius);
-  overflow: hidden; // to preserve round borders in Loaded child element
+  overflow: hidden; // to preserve round borders in Loaded child element (i.e., to trim the overflowing corners)
 `;
 
 const Loaded = styled.div`
@@ -57,6 +57,7 @@ const ProgressBar = ({ value, size }) => {
       <LoadedContainer>
         <Loaded loadedPercentage={value}/>
       </LoadedContainer>
+      <VisuallyHidden>{value}%</VisuallyHidden>
     </Wrapper>
   );
 };
