@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   width: fit-content;
   padding: 12px 16px;
   border-radius: 8px;
-  border: none;
   
   :hover {
     color: ${COLORS.black};
@@ -44,6 +43,7 @@ const InvisibleSelect = styled.select`
   width: 100%;
   height: 100%;
   opacity: 0;
+  -webkit-appearance: none; // necessary for safari
 `;
 
 const Select = ({ label, value, onChange, children }) => {
