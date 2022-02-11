@@ -7,27 +7,15 @@ import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
 
-const Wrapper = styled.div`
-  width: var(--width);
+const Wrapper = styled.label`
+  display: block;
   font-size: var(--font-size);
   line-height: var(--line-height);
-  
   position: relative;
-  //background-color: deeppink;
-  border-bottom: 1px solid ${COLORS.black};
-
   color: ${COLORS.gray700};
   
   :hover {
     color: ${COLORS.black};
-  }
-  
-  :focus-within {
-    outline-width: 3px;
-    outline-style: auto;
-    outline-offset: 4px;
-    outline-color: blue;
-    outline-color: -webkit-focus-ring-color;
   }
 `;
 
@@ -36,10 +24,10 @@ const Input = styled.input`
   line-height: inherit;
   font-size: inherit;
   border: none;
-  outline: none;
+  border-bottom: var(--border-width) solid ${COLORS.black};
+  outline-offset: 4px;
   background: transparent;
-  //background: orange;
-  width: 100%;
+  width: var(--width);
   font-weight: 700;
   padding: var(--padding);
 
@@ -56,7 +44,7 @@ const InputIcon = styled(Icon)`
   top: 0;
   bottom: 0;
   margin: auto;  
-  pointer-events: none;
+  //pointer-events: none;
 `;
 
 const sizeToStyle = {
@@ -64,11 +52,13 @@ const sizeToStyle = {
     '--font-size': '14px',
     '--line-height': '16px',
     '--padding': '4px 0 4px 24px',
+    '--border-width': '1px',
   },
   large : {
     '--font-size': '18px',
     '--line-height': '21px',
     '--padding': '7px 0 7px 36px',
+    '--border-width': '2px',
   },
 }
 
@@ -79,9 +69,6 @@ const IconInput = ({
   size,
   placeholder,
 }) => {
-  console.log(icon);
-
-
   return (
     <Wrapper style={{ '--width': `${width}px`, ...sizeToStyle[size] }}>
       <VisuallyHidden>{label}</VisuallyHidden>
